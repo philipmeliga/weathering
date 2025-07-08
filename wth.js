@@ -5,9 +5,10 @@ const location = document.getElementById("location").value;
  fetch(url) 
  .then(response => response.json()) 
  .then(data => { 
- const { temp, humidity, rainfall, sunshine,   feels_like } = data.main;
- const description = data.weather[0,1, 2, 3].description; 
+ const { temp,  feels_like } = data.main;
+ const description = data.weather[0,1].description; 
  
     const cityName = data.name;
     const country = data.sys.country; 
-    const weatherDisplay = `Current weather in ${cityName}, ${country}: ${description}, ${temp}°C, ${humidity}, ${rainfall}, ${sunshine},    (feels like ${feels_like}°C)`; document.getElementById("weather").textContent = weatherDisplay; }) .catch(error => console.log(error)); }
+    const weatherDisplay = `Current weather in ${cityName}, ${country}: ${description}, ${temp}°C,    (feels like ${feels_like}°C)`;
+document.getElementById("weather").textContent = weatherDisplay; }) .catch(error => console.log(error)); }
